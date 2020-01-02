@@ -1,0 +1,9 @@
+- extends 'minerals/base.html'
+- load mineral_filters
+- block content
+  .row
+    .col-12
+      %ul.mineral-list
+        - for mineral in mineral_list
+          %li.mineral-list-item
+            %a.mineral-link(href="{% url 'minerals:detail' mineral.id %}")= mineral.name|base_name

@@ -1,0 +1,35 @@
+- load static
+.sidebar
+  %form(method='get' action="{% url 'minerals:search' %}")
+    .form-group
+      .searchbar
+        %input.searchbar-input(type='search' name='query' id='query' placeholder='Search')<
+        %button.searchbar-btn(type='submit')>
+          %img(src="{% static 'minerals/icons/search.svg' %}"
+               alt="Search Icon" width="24" height="24" title="Search")
+    .mb-4
+      %input.valign-middle(type="checkbox" name="all_fields" id="id_all_fields")
+      %label(for="id_all_fields") Search all fields
+    
+  
+  %h3 Group
+  %ul
+    - for group in mineral_groups
+      %li
+        %a.filter-link(class="{% if group == active_filter %}is-active-filter{% endif %}"
+           href="{% url 'minerals:property_filter' property='group' value=group %}")= group
+  
+  %h3 Color
+  %ul
+    - for color in mineral_colors
+      %li
+        %a.filter-link(class="{% if color == active_filter %}is-active-filter{% endif %}"
+           href="{% url 'minerals:property_filter' property='color' value=color %}")= color
+           
+  %h3 Luster
+  %ul
+    - for luster in mineral_lusters
+      %li
+        %a(class="{% if luster == active_filter %}active_filter{% endif %}"
+           href="{% url 'minerals:property_filter' property='luster' value=luster %}")= luster
+  .py-5

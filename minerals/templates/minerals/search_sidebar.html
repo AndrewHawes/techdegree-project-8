@@ -1,0 +1,44 @@
+{% load static %}
+<div class="sidebar">
+  <form method="get" action="{% url 'minerals:search' %}">
+    <div class="form-group">
+      <div class="searchbar">
+        <input type="search" name="query" placeholder="Search" class="searchbar-input" id="query"><button type="submit" class="searchbar-btn">
+          <img src="{% static 'minerals/icons/search.svg' %}" alt="Search Icon" width="24" height="24" title="Search">
+        </button></div>
+    </div>
+    <div class="mb-4">
+      <input type="checkbox" name="all_fields" class="valign-middle" id="id_all_fields">
+      <label for="id_all_fields">Search all fields</label>
+
+
+    </div>
+  </form>
+  <h3>Group</h3>
+  <ul>
+    {% for group in mineral_groups %}
+      <li>
+        <a href="{% url 'minerals:property_filter' property='group' value=group %}" class="{% if group == active_filter %}is-active-filter{% endif %} filter-link">{{ group }}</a>
+
+      </li>
+    {% endfor %}
+  </ul>
+  <h3>Color</h3>
+  <ul>
+    {% for color in mineral_colors %}
+      <li>
+        <a href="{% url 'minerals:property_filter' property='color' value=color %}" class="{% if color == active_filter %}is-active-filter{% endif %} filter-link">{{ color }}</a>
+
+      </li>
+    {% endfor %}
+  </ul>
+  <h3>Luster</h3>
+  <ul>
+    {% for luster in mineral_lusters %}
+      <li>
+        <a href="{% url 'minerals:property_filter' property='luster' value=luster %}" class="{% if luster == active_filter %}active_filter{% endif %}">{{ luster }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+  <div class="py-5"></div>
+</div>

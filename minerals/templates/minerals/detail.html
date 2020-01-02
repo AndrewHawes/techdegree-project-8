@@ -1,0 +1,31 @@
+{% extends 'minerals/base.html' %}
+{% load static %}
+{% block content %}
+  <div class="row no-gutters">
+    <div class="mineral-container col-12">
+      <h1 class="mineral-name">
+        {% with mineral.name.split as variants %}
+          {% for variant in variants %}
+            <span style="white-space: nowrap;">{{ variant }}</span>
+          {% endfor %}
+        {% endwith %}
+      </h1>
+      <div class="mineral-image-bg text-center">
+        <img src="{% static 'minerals/images' %}/{{ mineral.image_filename }}" alt="image of {{ mineral.name }}" class="mineral-image">
+        <p class="mineral-caption">{{ mineral.image_caption }}</p>
+      </div>
+      <div class="mineral-table-container">
+        <table class="mineral-table">
+          {% for field in mineral.display_fields %}
+            <tr class="mineral-tr">
+              <td class="mineral-category">{{ field.name|title }}</td>
+              <td class="{%if field.name == 'formula' %}mineral__formula{% endif %}">
+                {{ field.value|safe }}
+              </td>
+            </tr>
+          {% endfor %}
+        </table>
+      </div>
+    </div>
+  </div>
+{% endblock %}

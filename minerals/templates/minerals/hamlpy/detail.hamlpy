@@ -1,0 +1,21 @@
+- extends 'minerals/base.html'
+- load static
+- block content
+  .row.no-gutters
+    .mineral-container.col-12
+      %h1.mineral-name
+        - with mineral.name.split as variants
+          - for variant in variants
+            %span(style='white-space: nowrap;')= variant
+      .mineral-image-bg.text-center
+        %img.mineral-image(
+          src="{% static 'minerals/images' %}/{{ mineral.image_filename }}"
+          alt="image of {{ mineral.name }}")
+        %p.mineral-caption= mineral.image_caption
+      .mineral-table-container
+        %table.mineral-table
+          - for field in mineral.display_fields
+            %tr.mineral-tr
+              %td.mineral-category= field.name|title
+              %td(class="{%if field.name == 'formula' %}mineral__formula{% endif %}")
+                = field.value|safe

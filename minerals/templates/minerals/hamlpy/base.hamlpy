@@ -1,0 +1,34 @@
+- load static
+!!! 5
+%html(lang='en')
+  %head
+    %meta(charset='utf-8')
+    %meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
+    %title Batminerals
+    
+    / Bootstrap Grid and Reboot CSS
+    %link(rel="stylesheet" href="{% static 'minerals/css/bootstrap-reboot.min.css' %}")
+    %link(rel="stylesheet" href="{% static 'minerals/css/bootstrap-grid.min.css' %}")
+   
+    / Custom CSS
+    %link(rel="stylesheet" href="{% static 'minerals/css/styles.css' %}")
+  
+  %body
+    - include 'minerals/search_sidebar.html'
+      .container.px-0
+        .row
+          .header.col-12
+            %a(href="{% url 'minerals:index' %}")
+              %img.header-logo(src="{% static 'minerals/images/batman-logo.png' %}" alt="Batman logo")
+              %h1.header-title Batminerals
+            %p.header-subtitle Gotham's Favorite Minerals
+        .row
+          .col-12
+            .mineral-filter-bar
+              - for ltr in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+                %a(class="letter-link{% if ltr == active_filter %} is-active-filter{% endif %}"
+                   href="{% url 'minerals:letter_filter' letter=ltr %}")= ltr
+    
+        - block content
+    .random-mineral-footer
+      %a.random-mineral-link(href="{% url 'minerals:random_mineral' %}") Show Random Batmineral

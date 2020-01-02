@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Batminerals</title>
+
+<!-- Bootstrap Grid and Reboot CSS -->
+    <link rel="stylesheet" href="{% static 'minerals/css/bootstrap-reboot.min.css' %}">
+    <link rel="stylesheet" href="{% static 'minerals/css/bootstrap-grid.min.css' %}">
+
+<!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'minerals/css/styles.css' %}">
+
+  </head>
+  <body>
+    {% include 'minerals/search_sidebar.html' %}
+      <div class="container px-0">
+        <div class="row">
+          <div class="header col-12">
+            <a href="{% url 'minerals:index' %}">
+              <img src="{% static 'minerals/images/batman-logo.png' %}" alt="Batman logo" class="header-logo">
+              <h1 class="header-title">Batminerals</h1>
+            </a>
+            <p class="header-subtitle">Gotham's Favorite Minerals</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="mineral-filter-bar">
+              {% for ltr in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' %}
+                <a href="{% url 'minerals:letter_filter' letter=ltr %}" class="letter-link{% if ltr == active_filter %} is-active-filter{% endif %}">{{ ltr }}</a>
+
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+        {% block content %}
+        {% endblock %}
+      </div>
+    <div class="random-mineral-footer">
+      <a href="{% url 'minerals:random_mineral' %}" class="random-mineral-link">Show Random Batmineral</a>
+    </div>
+  </body>
+</html>

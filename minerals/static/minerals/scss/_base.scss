@@ -1,0 +1,53 @@
+// ==========================================================================
+// Base Styles
+// ==========================================================================
+
+*, *:before, *:after { box-sizing: border-box; }
+
+html {
+  font-size: $base__font-size;
+}
+
+body {
+  background-color: $color-background-primary;
+  font-size: 1rem;
+  line-height: 1.6;
+  font-weight: 400;
+  font-family: $font-family--primary;
+  color: $color-text-secondary;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  font-family: "Work Sans", sans-serif;
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+li {
+  font-size: rem(13px);
+  margin-bottom: 0.5rem;
+}
+
+a {
+  color: $color-text-primary;
+  text-decoration: none !important;
+
+  &:hover {
+    color: $color-text-primary;
+    font-weight: $font-weight--bold;
+  }
+}
+
+table, p, ul {
+  margin-bottom: 25px;
+}

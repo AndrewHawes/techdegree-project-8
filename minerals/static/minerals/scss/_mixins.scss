@@ -1,0 +1,30 @@
+// ==========================================================================
+// Mixins
+// ==========================================================================
+
+@mixin column-count($count) {
+  column-count: $count;
+  -webkit-column-count: $count;
+  -moz-column-count: $count;
+}
+
+@mixin column-gap($gap) {
+  column-gap: $gap;
+  -webkit-column-gap: $gap;
+  -moz-column-gap: $gap;
+}
+
+@mixin btn-link() {
+  border: solid 2px $color-tertiary;
+  border-radius: 100px;
+  font-size: 13px;
+  text-align: center;
+  width: 100%;
+  transition: background-color 200ms ease-in-out, font-weight 200ms ease-in-out, color 200ms ease-in-out;
+
+  &:hover {
+    background-color: $color-background-active;
+    color: $color-tertiary;
+    font-weight: bold;
+  }
+}

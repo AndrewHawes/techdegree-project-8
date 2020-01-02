@@ -1,0 +1,15 @@
+{% extends 'minerals/base.html' %}
+{% load mineral_filters %}
+{% block content %}
+  <div class="row">
+    <div class="col-12">
+      <ul class="mineral-list">
+        {% for mineral in mineral_list %}
+          <li class="mineral-list-item">
+            <a href="{% url 'minerals:detail' mineral.id %}" class="mineral-link">{{ mineral.name|base_name }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+{% endblock %}

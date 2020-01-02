@@ -1,0 +1,46 @@
+// ==========================================================================
+// Global Config
+// ==========================================================================
+
+// Font Stacks
+
+$font-url--google       : 'https://fonts.googleapis.com/css?family=Cousine:400,700|Work+Sans:400,500&display=swap';
+$font-family--primary   : 'Cousine', monospace;
+$font-family--secondary : 'Work Sans', sans-serif;
+
+// Font Weights
+
+$font-weight--regular   : 400;
+$font-weight--medium    : 500;
+$font-weight--bold      : 700;
+
+// Descriptive Base Colors
+
+$yellow: #FDFF00;
+$black: #141414; // container background color
+$darkgray-1: #242424; // body background
+$darkgray-2: #343434; // mineral anchor hover background color
+$lightgray: #c5c5c5; // caption color -- secondary text
+$slategray: #505c7c; // image border color
+$iceberg: #DCF5F2; // table border, link border, hover color
+$shadowblack: #282e3c;
+
+// Color Usage
+
+$color-text-primary         : $yellow;
+$color-text-secondary       : $lightgray;
+$color-background-primary   : $darkgray-1;
+$color-background-secondary : $black;
+$color-background-active    : $darkgray-2;
+$color-tertiary             : $iceberg;
+$color-image-border         : $slategray;
+$color-shadow               : $shadowblack;
+
+// Text
+
+$base__font-size  : 15px;
+$base__line       : 24px;
+
+// Border radius
+
+$br               : 6px;
