@@ -1,4 +1,4 @@
-# Profile Project
+# Filtering and Searching the Mineral Catalog
 This is project 8 for the Python Web Development Techdegree program.
 It's a searchable and filterable mineral catalog.
 
